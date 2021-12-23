@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://djpvyvuw1k4e"]
+
+[ext_resource type="Script" path="res://Node2D.gd" id="1_nwxrr"]
+
+[node name="Node2D" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1_nwxrr" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+wp_binary = "C:/Users/elee/Documents/Game Launcher Project/wp.exe"
+godot_project = "C:/Users/elee/Documents/New Game Project"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="On" type="Button" parent="VBoxContainer"]
+offset_right = 510.0
+offset_bottom = 600.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "On"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Off" type="Button" parent="VBoxContainer"]
+offset_left = 514.0
+offset_right = 1024.0
+offset_bottom = 600.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Off"
+
+[connection signal="pressed" from="VBoxContainer/On" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Off" to="." method="_on_Off_pressed"]
