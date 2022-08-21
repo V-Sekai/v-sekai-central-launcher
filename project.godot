@@ -12,5 +12,5 @@ config_version=5
 
 config/name="Game Launcher Project"
 run/main_scene="res://Node2D.tscn"
-config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/icon="res://icon.png"
