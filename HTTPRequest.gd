@@ -37,3 +37,4 @@ func _on_request_completed(result, response_code, headers, body) -> void:
 	var save : File = File.new()
 	save.open("exe.zip", File.WRITE)
 	save.store_buffer(buffer)
+	print("_on_request_completed")
