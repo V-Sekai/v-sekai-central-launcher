@@ -2,11 +2,11 @@ extends Control
 
 @export_global_dir var godot_project
 
-var pid = -1
+var pid = []
 
 func _on_Button2_pressed():
 	var args = ["--path", godot_project]
-	pid = OS.create_instance(args)
+	pid = pid + [OS.create_instance(args)]
 
 
 func _on_Off_pressed():
@@ -14,4 +14,6 @@ func _on_Off_pressed():
 
 
 func _stop_pid():
-	OS.kill(pid)
+	for p in pid:
+		OS.kill(p)
+		pid.erase(p)
