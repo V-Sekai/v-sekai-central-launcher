@@ -4,12 +4,15 @@
 [ext_resource type="Script" path="res://HTTPRequest.gd" id="2_86wer"]
 
 [node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("1_nwxrr")
 godot_project = "."
 
 [node name="VBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -17,16 +20,13 @@ anchor_bottom = 1.0
 script = ExtResource("2_86wer")
 
 [node name="On" type="Button" parent="VBoxContainer"]
-offset_right = 510.0
-offset_bottom = 600.0
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 text = "On"
 
 [node name="Off" type="Button" parent="VBoxContainer"]
-offset_left = 514.0
-offset_right = 1024.0
-offset_bottom = 600.0
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 text = "Off"

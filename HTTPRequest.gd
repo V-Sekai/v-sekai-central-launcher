@@ -34,7 +34,6 @@ func _http_request_completed(result, response_code, headers, body) -> void:
 
 func _on_request_completed(result, response_code, headers, body) -> void:
 	var buffer = body
-	var save : File = File.new()
-	save.open("exe.zip", File.WRITE)
+	var save : FileAccess = FileAccess.open("exe.zip", FileAccess.WRITE)
 	save.store_buffer(buffer)
 	print("_on_request_completed")
