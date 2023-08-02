@@ -35,13 +35,14 @@ static func _get_files_recursive(original_path: String, current_path: String) ->
 		var full_path := "%s/%s" % [dir.get_current_dir(), file_name]
 		if dir.current_is_dir():
 			var relative_path := "%s/%s" % [current_path.replace(original_path, ""), file_name]
-			r[relative_path] = _get_files_recursive(original_path, current_path)
+			r[relative_path] = _get_files_recursive(original_path, full_path)
 		else:
 			r[file_name] = full_path
 		
 		file_name = dir.get_next()
 	
 	return r
+
 
 #-----------------------------------------------------------------------------#
 # Public functions
