@@ -32,7 +32,7 @@ func _http_request_completed(result, response_code, headers, body) -> void:
 	request(url)
 
 
-func _on_request_completed(result, response_code, headers, body) -> void:
+func _on_request_completed(_result, _response_code, _headers, body) -> void:
 	var buffer = body
 	var save : FileAccess = FileAccess.open("exe.zip", FileAccess.WRITE)
 	save.store_buffer(buffer)
