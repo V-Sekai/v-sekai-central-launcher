@@ -61,7 +61,7 @@ func _ready() -> void:
 		popup.confirmed.connect(func() -> void:
 			await gpm.purge_packages()
 		)
-		popup.cancelled.connect(func() -> void:
+		popup.canceled.connect(func() -> void:
 			popup.hide()
 		)
 	)

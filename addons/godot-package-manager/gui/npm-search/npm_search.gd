@@ -52,11 +52,32 @@ func _search_npm(text: String) -> void:
 			printerr("Received empty data from npm search: %s" % text)
 			continue
 		
-		var label = Label.new()
-		label.text = data.get("name", "No name") + ": " + data.get("description", "No description")
-		results_element.add_child(label)
+		var button = Button.new()
+		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		button.text = data.get("name", "No name") + ": " + data.get("description", "No description")
+		
+		button.pressed.connect(_on_button_pressed.bind(data))
+		
+		results_element.add_child(button)
 
 
+func _on_button_pressed(data: Dictionary) -> void:
+	if not data.has("version") or not data.has("name"):
+		return
+	var entry_name = data["version"]
+	
+	if FileAccess.file_exists("res://godot.package"):
+		var file = FileAccess.open("res://godot.package", FileAccess.READ)
+		var content = file.get_as_text()
+		
+		if content.find(entry_name) == -1:
+			var packages: Dictionary = JSON.parse_string(file.get_as_text())
+			file = FileAccess.open("res://godot.package", FileAccess.WRITE)
+			packages[data["name"]] = entry_name
+			file.store_string(JSON.stringify(packages))
+		file.close()
+
+			
 #-----------------------------------------------------------------------------#
 # Public functions
 #-----------------------------------------------------------------------------#
