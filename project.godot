@@ -12,5 +12,9 @@ config_version=5
 
 config/name="Game Launcher Project"
 run/main_scene="res://Node2D.tscn"
-config/features=PackedStringArray("4.0", "Double Precision")
+config/features=PackedStringArray("4.2", "Double Precision")
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PackedStringArray()
