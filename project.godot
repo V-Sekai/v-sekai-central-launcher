@@ -17,4 +17,4 @@ config/icon="res://icon.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/godot-package-manager/plugin.cfg")

@@ -43,13 +43,19 @@ func _search_npm(text: String) -> void:
 	
 	var results: Array = await GodotPackageManager.Npm.search(text)
 	
+	for child in results_element.get_children():
+		child.queue_free()
+
 	for i in results:
 		var data: Dictionary = i.get("package", {})
 		if data.is_empty():
 			printerr("Received empty data from npm search: %s" % text)
 			continue
 		
-		
+		var label = Label.new()
+		label.text = data.get("name", "No name") + ": " + data.get("description", "No description")
+		results_element.add_child(label)
+
 
 #-----------------------------------------------------------------------------#
 # Public functions
