@@ -139,7 +139,7 @@ jobs:
 
       - name: Upload Godot Artifact Export
         if: ${{ matrix.deploy }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: vsekai_central_${{ matrix.deploy-platform }}_x86_64
           path: |
